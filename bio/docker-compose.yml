@@ -1,0 +1,10 @@
+version: "2"
+services:
+  node:
+    container_name: bioinformatique
+    image: "bioinfo:latest"
+    networks:
+      - lsio
+networks:
+  lsio:
+    external: true

@@ -196,6 +196,20 @@
 
 <script>
 export default {
+  watch: {
+    fracg: function() {
+      this.fract = 100 - this.fraca - this.fracc - this.fracg;
+      this.debouncedGetAnswer();
+    },
+    fracc: function() {
+      this.fract = 100 - this.fraca - this.fracc - this.fracg;
+      this.debouncedGetAnswer();
+    },
+    fraca: function() {
+      this.fract = 100 - this.fraca - this.fracc - this.fracg;
+      this.debouncedGetAnswer();
+    },
+  },
   methods: {
     GenerateRandom() {
       var max = 100;
@@ -218,8 +232,7 @@ export default {
     return {
       rules: [
         () =>
-          this.fraca + this.fracc + this.fracg + this.fract <= 100 ||
-          "Invalid",
+          this.fraca + this.fracc + this.fracg + this.fract <= 100 || "Invalid",
       ],
       fraca: 0,
       fracc: 0,
